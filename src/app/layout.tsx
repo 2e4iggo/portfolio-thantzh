@@ -1,3 +1,4 @@
+import AppWrapper from "@/components/AppWrapper/AppWrapper";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -23,10 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>  
+        <AppWrapper>
+          {children}
+        </AppWrapper>
       </body>
     </html>
   );
