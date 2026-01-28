@@ -30,5 +30,4 @@ export const ContentContainer = styled.div`
 width: 100%;
 padding: 0 0 0 2.5vw;
 overflow-y: scroll;
-background-color: green;
 `;
