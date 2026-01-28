@@ -10,7 +10,7 @@ interface IAppContext {
   theme: ITheme;
   themeType: "light" | "dark";
   toggleTheme: () => void;
-  currentLanguage: "en" | "mm";
+  currentLanguage: "en" | "fr" | "mm";
   toggleLanguage: () => void;
   languageTexts: ILanguageTexts;
 }
@@ -19,14 +19,14 @@ export const AppContext = createContext<IAppContext | null>(null);
 
 const AppWrapper = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [language, setLanguage] = useState<"en" | "mm">("en");
+  const [language, setLanguage] = useState<"en" | "fr" | "mm">("en");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) => (prevLanguage === "en" ? "mm" : "en"));
+    setLanguage((prevLanguage) => (prevLanguage === "en" ? "fr" : "en"));
   };
 
   const appContextValue: IAppContext = {
