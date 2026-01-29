@@ -38,7 +38,6 @@ export const ProfilePicture = styled.div`
 	border-bottom: 4px solid ${(props) => props.theme.primaryColor};
 	border-right: 4px solid ${(props) => props.theme.primaryColor};
 	
-
 	img {
 		border-radius: 100%;
 		object-fit: cover;
