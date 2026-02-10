@@ -11,7 +11,7 @@ export interface ITheme {
 export const LIGHT_THEME: ITheme = {
 	black: "#000000",
 	white: "#FFFFFF",
-	primaryColor: "#8F193D",
+	primaryColor: "#1478b6",
 	primaryColorLight: "#f3e8eb",
 	gray_1: "#f2f2f2",
 	background: "#FFFFFF",

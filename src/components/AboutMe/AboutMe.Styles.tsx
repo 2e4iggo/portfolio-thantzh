@@ -19,7 +19,6 @@ export const AboutMeContainer = styled.div`
 		font-size: 1.7vw;
 		opacity: 0.6;
 		font-weight: bold;
-		font-family: "Jim Nightshade";
 	}
 
 	.summary {
@@ -80,7 +79,7 @@ export const SocailLink = styled("a")<{ $backgroundColor?: string }>`
 		bottom: 86%;
 	}
 	&.socialLink_3{
-		left: 48%;
+		left: 48%; 
 		bottom: 93%;
 	}
 `;
