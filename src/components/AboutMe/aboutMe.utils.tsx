@@ -16,12 +16,12 @@ export const SOCIAL_LINKS = [
 		icon: <FaLinkedinIn color="#FFF" size={"1.4vw"} />,
 		backgroundColor: "#0E61BE",
 	},
-	// {
-	// 	title: "Youtube",
-	// 	href: "https://www.youtube.com",
-	// 	icon: <FiYoutube color="#FFF" size={"1.4vw"} />,
-	// 	backgroundColor: "#ff0000",
-	// },
+	{
+		title: "Youtube",
+		href: "https://www.youtube.com",
+		icon: <FiYoutube color="#FFF" size={"1.4vw"} />,
+		backgroundColor: "#ff0000",
+	},
 	// {
 	// 	title: "Medium",
 	// 	href: "https://medium.com",
