@@ -449,11 +449,11 @@ export const englishTexts: ILanguageTexts = {
 
 export const frenchTexts: ILanguageTexts = {
 	aboutMe: {
-		name: "John DoeReMi",
-		title: "Développeur Front-End",
+		name: "Thant Zaw Htet",
+		title: "Application Engineer",
 		description:
-			"En tant que développeur Full Stack Web et Mobile passionné, j'apporte plus de deux ans d'expérience complète dans le cycle de vie du développement logiciel, y compris la planification de projet, la conception UI/UX, le développement, les tests, le déploiement et la maintenance continue. Ma capacité à m'adapter rapidement et à apprendre de nouvelles technologies fait de moi un atout précieux pour toute équipe, et je suis confiant dans ma capacité à contribuer efficacement au succès de votre entreprise.",
-		downloadResume: "Télécharger le CV",
+			"作为一名拥有 9 年经验的软件工程师，我专门为人力资源和财务软件开发基于云的企业解决方案。我的专业知识包括使用 Microsoft .NET 技术构建可扩展的应用程序，以简化企业和中小企业的人力资源流程、财务运营和商业智能。我热衷于利用技术解决复杂的业务挑战并提高运营效率。",
+		downloadResume: "下载简历",
 	},
 	projects: {
 		title: "Projets en vedette",

@@ -4,12 +4,14 @@ import { AppContext } from "../AppWrapper/AppWrapper";
 import { HiOutlineMail } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
 import {SOCIAL_LINKS} from "./aboutMe.utils";
+import NavigationMenu from "../NavigationMenu/NavigationMenu";
 
 const AboutMe = () => {
   const {languageTexts, theme} = useContext(AppContext)!;
 
   return (
     <AboutMeContainer>
+      <NavigationMenu />
       <div>
         <ProfilePicture>
           {SOCIAL_LINKS.map(({href,icon,backgroundColor},index)=>(
