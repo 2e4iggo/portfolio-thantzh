@@ -6,7 +6,16 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: none;
     box-sizing: border-box !important;
-    font-size: .93vw;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: clamp(12px, 0.93vw, 18px);
+    }
   }
 
   html {
@@ -99,7 +108,7 @@ export const ContentContainer = styled.div`
 	-webkit-overflow-scrolling: touch;
 	
 	@media (max-width: 768px) {
-		padding: 0 4vw;
+		padding: 1rem;
 	}
 `;
 

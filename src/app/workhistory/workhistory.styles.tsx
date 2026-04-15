@@ -35,9 +35,13 @@ const fadeInLeft = keyframes`
 
 export const WorkHistoryContainer = styled.div`
 	min-height: 100vh;
-	padding: 4vw 6vw;
+	padding: 2rem 1rem;
 	position: relative;
 	overflow: hidden;
+
+	@media (min-width: 768px) {
+		padding: 4vw 6vw;
+	}
 
 	&::before {
 		content: "";
@@ -65,26 +69,35 @@ export const WorkHistoryContainer = styled.div`
 
 export const PageHeader = styled.div`
 	text-align: center;
-	margin-bottom: 4vw;
+	margin-bottom: 2rem;
 	animation: ${fadeInDown} 0.8s ease-out;
 
+	@media (min-width: 768px) {
+		margin-bottom: 4vw;
+	}
+
 	h1 {
-		font-size: 3vw;
+		font-size: 2rem;
 		font-weight: 700;
 		color: ${(props) => props.theme.primaryColor};
-		margin-bottom: 1vw;
+		margin-bottom: 1rem;
 		letter-spacing: -0.02em;
 		position: relative;
 		display: inline-block;
 
+		@media (min-width: 768px) {
+			font-size: 3vw;
+			margin-bottom: 1vw;
+		}
+
 		&::after {
 			content: "";
 			position: absolute;
-			bottom: -0.5vw;
+			bottom: -0.5rem;
 			left: 50%;
 			transform: translateX(-50%);
 			width: 60%;
-			height: 0.3vw;
+			height: 3px;
 			background: linear-gradient(
 				90deg,
 				transparent,
@@ -92,28 +105,42 @@ export const PageHeader = styled.div`
 				transparent
 			);
 			border-radius: 2px;
+
+			@media (min-width: 768px) {
+				bottom: -0.5vw;
+				height: 0.3vw;
+			}
 		}
 	}
 
 	.subtitle {
-		font-size: 1.3vw;
+		font-size: 1rem;
 		color: ${(props) => props.theme.textColor};
 		opacity: 0.7;
-		margin-top: 1.5vw;
+		margin-top: 1rem;
+
+		@media (min-width: 768px) {
+			font-size: 1.3vw;
+			margin-top: 1.5vw;
+		}
 	}
 `;
 
 export const Timeline = styled.div`
 	position: relative;
-	padding-left: 3vw;
+	padding-left: 2rem;
+
+	@media (min-width: 768px) {
+		padding-left: 3vw;
+	}
 
 	&::before {
 		content: "";
 		position: absolute;
 		left: 0;
-		top: 2vw;
-		bottom: 2vw;
-		width: 0.3vw;
+		top: 1.5rem;
+		bottom: 1.5rem;
+		width: 3px;
 		background: linear-gradient(
 			180deg,
 			${(props) => props.theme.primaryColor}40,
@@ -121,51 +148,79 @@ export const Timeline = styled.div`
 			${(props) => props.theme.primaryColor}40
 		);
 		border-radius: 2px;
+
+		@media (min-width: 768px) {
+			top: 2vw;
+			bottom: 2vw;
+			width: 0.3vw;
+		}
 	}
 `;
 
 export const ExperienceCard = styled.div<{ $delay?: number }>`
 	position: relative;
-	margin-bottom: 3vw;
+	margin-bottom: 2rem;
 	animation: ${fadeInLeft} 0.8s ease-out ${(props) => props.$delay || 0}s both;
+
+	@media (min-width: 768px) {
+		margin-bottom: 3vw;
+	}
 
 	&::before {
 		content: "";
 		position: absolute;
-		left: -3.5vw;
-		top: 1.5vw;
-		width: 1.2vw;
-		height: 1.2vw;
+		left: -2.4rem;
+		top: 1.2rem;
+		width: 1rem;
+		height: 1rem;
 		background: ${(props) => props.theme.primaryColor};
-		border: 0.3vw solid ${(props) => props.theme.background};
+		border: 3px solid ${(props) => props.theme.background};
 		border-radius: 50%;
-		box-shadow: 0 0 0 0.3vw ${(props) => props.theme.primaryColor}30;
+		box-shadow: 0 0 0 3px ${(props) => props.theme.primaryColor}30;
 		z-index: 2;
+
+		@media (min-width: 768px) {
+			left: -3.5vw;
+			top: 1.5vw;
+			width: 1.2vw;
+			height: 1.2vw;
+			border: 0.3vw solid ${(props) => props.theme.background};
+			box-shadow: 0 0 0 0.3vw ${(props) => props.theme.primaryColor}30;
+		}
 	}
 `;
 
 export const ExperienceContent = styled.div`
 	background: ${(props) => props.theme.background};
 	border: 2px solid ${(props) => props.theme.primaryColor}20;
-	border-radius: 1.5vw;
-	padding: 2vw 2.5vw;
+	border-radius: 1rem;
+	padding: 1.5rem;
 	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 	transition: all 0.4s ease;
 	position: relative;
 	overflow: hidden;
+
+	@media (min-width: 768px) {
+		border-radius: 1.5vw;
+		padding: 2vw 2.5vw;
+	}
 
 	&::before {
 		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 0.4vw;
+		width: 4px;
 		height: 100%;
 		background: linear-gradient(
 			180deg,
 			${(props) => props.theme.primaryColor},
 			${(props) => props.theme.primaryColor}60
 		);
+
+		@media (min-width: 768px) {
+			width: 0.4vw;
+		}
 	}
 
 	&:hover {
@@ -176,73 +231,116 @@ export const ExperienceContent = styled.div`
 `;
 
 export const ExperienceHeader = styled.div`
-	margin-bottom: 1.5vw;
-	padding-bottom: 1vw;
+	margin-bottom: 1rem;
+	padding-bottom: 0.75rem;
 	border-bottom: 1px solid ${(props) => props.theme.primaryColor}15;
+
+	@media (min-width: 768px) {
+		margin-bottom: 1.5vw;
+		padding-bottom: 1vw;
+	}
 `;
 
 export const JobTitle = styled.h2`
-	font-size: 1.6vw;
+	font-size: 1.25rem;
 	font-weight: 700;
 	color: ${(props) => props.theme.textColor};
-	margin: 0 0 0.5vw 0;
+	margin: 0 0 0.5rem 0;
 	display: flex;
 	align-items: center;
-	gap: 0.8vw;
+	gap: 0.75rem;
+
+	@media (min-width: 768px) {
+		font-size: 1.6vw;
+		margin: 0 0 0.5vw 0;
+		gap: 0.8vw;
+	}
 
 	.title-icon {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2vw;
-		height: 2vw;
+		width: 2rem;
+		height: 2rem;
 		background: linear-gradient(
 			135deg,
 			${(props) => props.theme.primaryColor}20,
 			${(props) => props.theme.primaryColor}10
 		);
-		border-radius: 0.5vw;
-		font-size: 1.2vw;
+		border-radius: 0.5rem;
+		font-size: 1.1rem;
+
+		@media (min-width: 768px) {
+			width: 2vw;
+			height: 2vw;
+			border-radius: 0.5vw;
+			font-size: 1.2vw;
+		}
 	}
 `;
 
 export const CompanyInfo = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1vw;
+	gap: 0.75rem;
 	align-items: center;
-	margin-top: 0.8vw;
+	margin-top: 0.75rem;
+
+	@media (min-width: 768px) {
+		gap: 1vw;
+		margin-top: 0.8vw;
+	}
 `;
 
 export const Company = styled.span`
-	font-size: 1.1vw;
+	font-size: 1rem;
 	font-weight: 600;
 	color: ${(props) => props.theme.primaryColor};
 	display: flex;
 	align-items: center;
-	gap: 0.5vw;
+	gap: 0.5rem;
+
+	@media (min-width: 768px) {
+		font-size: 1.1vw;
+		gap: 0.5vw;
+	}
 
 	&::before {
 		content: "🏢";
-		font-size: 1vw;
+		font-size: 0.95rem;
+
+		@media (min-width: 768px) {
+			font-size: 1vw;
+		}
 	}
 `;
 
 export const Duration = styled.span`
-	font-size: 1vw;
+	font-size: 0.9rem;
 	color: ${(props) => props.theme.textColor};
 	opacity: 0.7;
 	display: flex;
 	align-items: center;
-	gap: 0.5vw;
-	padding: 0.4vw 1vw;
+	gap: 0.5rem;
+	padding: 0.4rem 0.8rem;
 	background: ${(props) => props.theme.primaryColor}08;
-	border-radius: 3vw;
+	border-radius: 2rem;
 	border: 1px solid ${(props) => props.theme.primaryColor}20;
+
+	@media (min-width: 768px) {
+		font-size: 1vw;
+		gap: 0.5vw;
+		padding: 0.4vw 1vw;
+		border-radius: 3vw;
+	}
 
 	&::before {
 		content: "📅";
-		font-size: 0.9vw;
+		font-size: 0.85rem;
+
+		@media (min-width: 768px) {
+			font-size: 0.9vw;
+		}
 	}
 `;
 
@@ -252,28 +350,44 @@ export const AchievementsList = styled.ul`
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	gap: 1vw;
+	gap: 0.75rem;
+
+	@media (min-width: 768px) {
+		gap: 1vw;
+	}
 `;
 
 export const AchievementItem = styled.li`
 	display: grid;
 	grid-template-columns: auto 1fr;
-	gap: 1vw;
-	font-size: 1.05vw;
-	line-height: 1.8;
+	gap: 0.75rem;
+	font-size: 0.95rem;
+	line-height: 1.6;
 	color: ${(props) => props.theme.textColor};
 	opacity: 0.9;
 	position: relative;
-	padding-left: 0.5vw;
+	padding-left: 0.5rem;
+
+	@media (min-width: 768px) {
+		gap: 1vw;
+		font-size: 1.05vw;
+		line-height: 1.8;
+		padding-left: 0.5vw;
+	}
 
 	&::before {
 		content: "✓";
 		color: ${(props) => props.theme.primaryColor};
 		font-weight: 700;
-		font-size: 1.2vw;
+		font-size: 1.1rem;
 		display: flex;
 		align-items: flex-start;
-		padding-top: 0.1vw;
+		padding-top: 0.1rem;
+
+		@media (min-width: 768px) {
+			font-size: 1.2vw;
+			padding-top: 0.1vw;
+		}
 	}
 
 	strong {
@@ -285,8 +399,8 @@ export const AchievementItem = styled.li`
 export const HighlightBadge = styled.div`
 	display: inline-flex;
 	align-items: center;
-	gap: 0.5vw;
-	padding: 0.5vw 1.2vw;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
 	background: linear-gradient(
 		135deg,
 		${(props) => props.theme.primaryColor}15,
@@ -294,11 +408,19 @@ export const HighlightBadge = styled.div`
 	);
 	border: 1px solid ${(props) => props.theme.primaryColor}40;
 	color: ${(props) => props.theme.primaryColor};
-	border-radius: 4vw;
-	font-size: 0.9vw;
+	border-radius: 2rem;
+	font-size: 0.85rem;
 	font-weight: 600;
-	margin-top: 1vw;
+	margin-top: 0.75rem;
 	transition: all 0.3s ease;
+
+	@media (min-width: 768px) {
+		gap: 0.5vw;
+		padding: 0.5vw 1.2vw;
+		border-radius: 4vw;
+		font-size: 0.9vw;
+		margin-top: 1vw;
+	}
 
 	&:hover {
 		transform: translateY(-2px);
@@ -321,7 +443,11 @@ export const HighlightBadge = styled.div`
 			box-shadow: 0 0 0 0 ${(props) => props.theme.primaryColor}40;
 		}
 		50% {
-			box-shadow: 0 0 0 0.5vw ${(props) => props.theme.primaryColor}00;
+			box-shadow: 0 0 0 0.5rem ${(props) => props.theme.primaryColor}00;
+
+			@media (min-width: 768px) {
+				box-shadow: 0 0 0 0.5vw ${(props) => props.theme.primaryColor}00;
+			}
 		}
 	}
 `;
@@ -333,40 +459,66 @@ export const SummarySection = styled.div`
 		${(props) => props.theme.primaryColor}05
 	);
 	border: 2px solid ${(props) => props.theme.primaryColor}30;
-	border-radius: 1.5vw;
-	padding: 2.5vw;
-	margin-top: 3vw;
+	border-radius: 1rem;
+	padding: 2rem;
+	margin-top: 2rem;
 	text-align: center;
 	animation: ${fadeInUp} 1s ease-out 1s both;
 
+	@media (min-width: 768px) {
+		border-radius: 1.5vw;
+		padding: 2.5vw;
+		margin-top: 3vw;
+	}
+
 	h3 {
-		font-size: 1.8vw;
+		font-size: 1.5rem;
 		font-weight: 700;
 		color: ${(props) => props.theme.primaryColor};
-		margin-bottom: 1.5vw;
+		margin-bottom: 1rem;
+
+		@media (min-width: 768px) {
+			font-size: 1.8vw;
+			margin-bottom: 1.5vw;
+		}
 	}
 
 	.summary-stats {
 		display: flex;
 		justify-content: center;
-		gap: 3vw;
-		margin-top: 2vw;
+		gap: 2rem;
+		margin-top: 1.5rem;
+		flex-wrap: wrap;
+
+		@media (min-width: 768px) {
+			gap: 3vw;
+			margin-top: 2vw;
+		}
 	}
 `;
 
 export const SummaryStat = styled.div`
 	.stat-number {
-		font-size: 2.5vw;
+		font-size: 2rem;
 		font-weight: 700;
 		color: ${(props) => props.theme.primaryColor};
-		margin-bottom: 0.5vw;
+		margin-bottom: 0.5rem;
+
+		@media (min-width: 768px) {
+			font-size: 2.5vw;
+			margin-bottom: 0.5vw;
+		}
 	}
 
 	.stat-label {
-		font-size: 1vw;
+		font-size: 0.9rem;
 		color: ${(props) => props.theme.textColor};
 		opacity: 0.7;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
+
+		@media (min-width: 768px) {
+			font-size: 1vw;
+		}
 	}
 `;
