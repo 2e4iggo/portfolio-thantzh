@@ -19,7 +19,7 @@ export const NavigationMenus = (theme: DefaultTheme) => {
 		{
 			title: "Work history",
 			icon: <MdOutlineWorkOutline color={theme.textColor} size={"1vw"} />,
-			href: "/work-history",
+			href: "/workhistory",
 		},
 		{
 			title: "Skills",

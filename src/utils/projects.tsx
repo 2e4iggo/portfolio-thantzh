@@ -14,8 +14,8 @@ export interface Project {
 export const dummyProjects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform with user authentication, product management, shopping cart, and payment integration. Features include real-time inventory tracking, order management, and admin dashboard.",
+    title: "HR Management System",
+    description: "A full-stack HR management system with employee profiles, payroll tracking, leave management, and performance reviews. Features include role-based access control, reporting dashboards, and integration with third-party tools.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Redux", "Tailwind CSS"],
     liveUrl: "https://example-ecommerce.com",
     githubUrl: "https://github.com/example/ecommerce",

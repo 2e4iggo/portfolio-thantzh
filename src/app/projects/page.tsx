@@ -1,93 +1,163 @@
-import React from 'react';
-import { dummyProjects } from '@/utils/projects';
+"use client";
+
+import React, { useState, useMemo } from 'react';
+import { dummyProjects, Project } from '@/utils/projects';
+import {
+  ProjectsContainer,
+  PageHeader,
+  FilterSection,
+  FilterButton,
+  ProjectsGrid,
+  ProjectCard,
+  TechnologiesContainer,
+  TechBadge,
+  ProjectLinks,
+  EmptyState,
+  StatsBar,
+  StatItem,
+} from './projects.styles';
+
+type FilterType = 'all' | 'completed' | 'in-progress' | 'planned';
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+
+  // Calculate statistics
+  const stats = useMemo(() => {
+    return {
+      total: dummyProjects.length,
+      completed: dummyProjects.filter(p => p.status === 'completed').length,
+      inProgress: dummyProjects.filter(p => p.status === 'in-progress').length,
+      planned: dummyProjects.filter(p => p.status === 'planned').length,
+    };
+  }, []);
+
+  // Filter projects
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'all') {
+      return dummyProjects;
+    }
+    return dummyProjects.filter(project => project.status === activeFilter);
+  }, [activeFilter]);
+
+  const formatDate = (dateString: string) => {
+    const [year, month] = dateString.split('-');
+    const date = new Date(parseInt(year), parseInt(month) - 1);
+    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  };
+
   return (
-    <div className="min-h-screen p-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2 text-gray-900">My Projects</h1>
-        <p className="text-gray-600 mb-8">A collection of my recent work and accomplishments</p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {dummyProjects.map((project) => (
-            <div 
-              key={project.id} 
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6"
-            >
-              {/* Project Header */}
-              <div className="mb-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h2 className="text-xl font-semibold text-gray-900">{project.title}</h2>
-                  <span 
-                    className={`text-xs px-2 py-1 rounded-full ${
-                      project.status === 'completed' 
-                        ? 'bg-green-100 text-green-800' 
-                        : project.status === 'in-progress'
-                        ? 'bg-blue-100 text-blue-800'
-                        : 'bg-gray-100 text-gray-800'
-                    }`}
-                  >
+    <ProjectsContainer>
+      <div className="content-wrapper">
+        <PageHeader>
+          <h1>My Projects</h1>
+          <p className="subtitle">A showcase of my work and technical expertise</p>
+        </PageHeader>
+
+        <StatsBar>
+          <StatItem>
+            <div className="stat-number">{stats.total}</div>
+            <div className="stat-label">Total Projects</div>
+          </StatItem>
+          <StatItem>
+            <div className="stat-number">{stats.completed}</div>
+            <div className="stat-label">Completed</div>
+          </StatItem>
+          <StatItem>
+            <div className="stat-number">{stats.inProgress}</div>
+            <div className="stat-label">In Progress</div>
+          </StatItem>
+          <StatItem>
+            <div className="stat-number">{stats.planned}</div>
+            <div className="stat-label">Planned</div>
+          </StatItem>
+        </StatsBar>
+
+        <FilterSection>
+          <FilterButton
+            $active={activeFilter === 'all'}
+            onClick={() => setActiveFilter('all')}
+          >
+            All Projects
+          </FilterButton>
+          <FilterButton
+            $active={activeFilter === 'completed'}
+            onClick={() => setActiveFilter('completed')}
+          >
+            Completed
+          </FilterButton>
+          <FilterButton
+            $active={activeFilter === 'in-progress'}
+            onClick={() => setActiveFilter('in-progress')}
+          >
+            In Progress
+          </FilterButton>
+          <FilterButton
+            $active={activeFilter === 'planned'}
+            onClick={() => setActiveFilter('planned')}
+          >
+            Planned
+          </FilterButton>
+        </FilterSection>
+
+        <ProjectsGrid>
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project) => (
+              <ProjectCard key={project.id}>
+                <div className="project-header">
+                  <h2 className="project-title">{project.title}</h2>
+                  <span className={`status-badge ${project.status}`}>
                     {project.status}
                   </span>
                 </div>
-                <p className="text-sm text-gray-500">
-                  {project.startDate} {project.endDate ? `- ${project.endDate}` : '- Present'}
-                </p>
-              </div>
 
-              {/* Project Description */}
-              <p className="text-gray-700 text-sm mb-4 line-clamp-3">
-                {project.description}
-              </p>
+                <p className="project-description">{project.description}</p>
 
-              {/* Technologies */}
-              <div className="mb-4">
-                <h3 className="text-xs font-semibold text-gray-600 mb-2">Technologies:</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((tech, index) => (
-                    <span 
-                      key={index} 
-                      className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 4 && (
-                    <span className="text-xs text-gray-500 px-2 py-1">
-                      +{project.technologies.length - 4} more
-                    </span>
+                <div className="project-meta">
+                  <div className="project-dates">
+                    📅 {formatDate(project.startDate)}
+                    {project.endDate && ` - ${formatDate(project.endDate)}`}
+                  </div>
+
+                  <TechnologiesContainer>
+                    {project.technologies.map((tech, index) => (
+                      <TechBadge key={index}>{tech}</TechBadge>
+                    ))}
+                  </TechnologiesContainer>
+
+                  {(project.liveUrl || project.githubUrl) && (
+                    <ProjectLinks>
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="live-demo"
+                        >
+                          🚀 Live Demo
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="github"
+                        >
+                          💻 GitHub
+                        </a>
+                      )}
+                    </ProjectLinks>
                   )}
                 </div>
-              </div>
-
-              {/* Links */}
-              <div className="flex gap-3 pt-4 border-t border-gray-200">
-                {project.liveUrl && (
-                  <a 
-                    href={project.liveUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    Live Demo →
-                  </a>
-                )}
-                {project.githubUrl && (
-                  <a 
-                    href={project.githubUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-600 hover:text-gray-800 font-medium"
-                  >
-                    GitHub →
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+              </ProjectCard>
+            ))
+          ) : (
+            <EmptyState>No projects found for the selected filter.</EmptyState>
+          )}
+        </ProjectsGrid>
       </div>
-    </div>
+    </ProjectsContainer>
   );
 };
 

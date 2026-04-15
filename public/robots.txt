@@ -1,0 +1,7 @@
+# robots.txt for ThantZH Portfolio
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml
