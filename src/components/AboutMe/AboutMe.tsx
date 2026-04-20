@@ -37,10 +37,10 @@ const AboutMe = () => {
             <button onClick={()=>null}>{languageTexts.aboutMe.downloadResume}</button>
           </a>
           <a href="mailto:2e4i990@gmail.com" className="icon">
-            <HiOutlineMail size={"1.5vw"} color={theme.primaryColor}/>
+            <HiOutlineMail size={28} color={theme.primaryColor}/>
           </a>
           <a href="https://wa.me/01126609765" className="icon" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp size={"1.5vw"} color={theme.primaryColor}/>
+            <FaWhatsapp size={28} color={theme.primaryColor}/>
           </a>
         </CallToActionButtons>
       </div>

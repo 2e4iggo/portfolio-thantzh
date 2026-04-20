@@ -8,27 +8,27 @@ export const NavigationMenus = (theme: DefaultTheme) => {
 	return [
 		{
 			title: "Home",
-			icon: <AiOutlineHome color={theme.textColor} size={"1vw"} />,
+			icon: <AiOutlineHome color={theme.textColor} size={20} />,
 			href: "/",
 		},
 		{
 			title: "Projects",
-			icon: <BiCodeBlock color={theme.textColor} size={"1vw"} />,
+			icon: <BiCodeBlock color={theme.textColor} size={20} />,
 			href: "/projects",
 		},
 		{
 			title: "Work history",
-			icon: <MdOutlineWorkOutline color={theme.textColor} size={"1vw"} />,
+			icon: <MdOutlineWorkOutline color={theme.textColor} size={20} />,
 			href: "/workhistory",
 		},
 		{
 			title: "Skills",
-			icon: <FaCode color={theme.textColor} size={"1vw"} />,
+			icon: <FaCode color={theme.textColor} size={20} />,
 			href: "/skills",
 		},
 		{
 			title: "Education",
-			icon: <MdOutlineSchool color={theme.textColor} size={"1vw"} />,
+			icon: <MdOutlineSchool color={theme.textColor} size={20} />,
 			href: "/education",
 		},
 	];

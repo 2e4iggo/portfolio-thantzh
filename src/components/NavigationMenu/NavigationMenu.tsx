@@ -13,10 +13,10 @@ const NavigationMenu = () => {
     const {currentLanguage, theme,toggleLanguage,themeType,toggleTheme} = useContext(AppContext)!;
    
     const LanguageIcon = currentLanguage === "en" ? 
-    (<RxFontFamily color={theme.textColor} size={"1vw"}/>):(<RiEnglishInput color={theme.textColor} size={"1vw"}/>);
+    (<RxFontFamily color={theme.textColor} size={20}/>):(<RiEnglishInput color={theme.textColor} size={20}/>);
     
     const ThemeIcon = themeType === "light" ? 
-    (<TbBulb color={theme.textColor} size={"1.2vw"}/>):(<TbBulbOff color={theme.textColor} size={"1.2vw"}/>);
+    (<TbBulb color={theme.textColor} size={24}/>):(<TbBulbOff color={theme.textColor} size={24}/>);
     
     return (
         <NavigationMenuContainer>

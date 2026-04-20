@@ -95,7 +95,7 @@ export const englishTexts: ILanguageTexts = {
 		title: "Application Engineer",
 		description:
 			// "As a passionate Full Stack Web and Mobile Developer, I bring over two years of comprehensive experience in the software development lifecycle, including project planning, UI/UX design, development, testing, deployment, and ongoing maintenance. My ability to quickly adapt and learn new technologies makes me a valuable asset to any team, and I am confident in my capacity to contribute effectively to your company's success.",
-			"As a Software Engineer with 9 years of experience, I specialize in developing cloud-based enterprise solutions for HR and Finance software. My expertise includes building scalable applications using Microsoft .NET technologies that streamline HR processes, financial operations, and business intelligence for enterprises and SMEs. I am passionate about leveraging technology to solve complex business challenges and drive operational efficiency.",
+			"Software Engineer with 9 years of experience building cloud-based HR and Finance solutions using Microsoft .NET. Skilled in developing scalable applications that streamline processes and enhance business intelligence for enterprises and SMEs.",
 		downloadResume: "Download Resume",
 	},
 
