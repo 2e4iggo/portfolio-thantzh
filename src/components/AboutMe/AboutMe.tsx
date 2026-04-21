@@ -39,7 +39,7 @@ const AboutMe = () => {
           <a href="mailto:2e4i990@gmail.com" className="icon">
             <HiOutlineMail size={28} color={theme.primaryColor}/>
           </a>
-          <a href="https://wa.me/01126609765" className="icon" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/601126609765" className="icon" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp size={28} color={theme.primaryColor}/>
           </a>
         </CallToActionButtons>
